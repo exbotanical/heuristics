@@ -12,16 +12,23 @@ jobs:
     name: Publish on NPM
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Git Checkout
         uses: actions/checkout@v2
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@646cdf48217256a3d0b80361c5a50727664284f2
         with:
-          fetch-depth: 0
-      - name: Setup Node.js
+          version: 6.14.7
+
+      - name: Setup Node
         uses: actions/setup-node@v2
         with:
           node-version: 'lts/*'
+          cache: 'pnpm'
+
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install
+
       - name: Publish to NPM
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -43,7 +50,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: 'lts/*'
           cache: 'pnpm'
 
       - run: pnpm install
