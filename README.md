@@ -8,6 +8,8 @@
 
 `heuristics` is a library of useful heuristics, type checks, and validation helpers for JavaScript and TypeScript. Instead of repeatedly validating types (here, we mean type guards, not annotations), evaluating whether or not an API response is null (or indeed an object, only entirely empty), you can depend on this tested, consistent library API to get the job done.
 
+![Exquisite GIF of Hagrid](assets/urawiz.gif "the maintainer does not guarantee this will happen to you")
+
 ## Installation
 
 ```bash
