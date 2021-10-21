@@ -8,13 +8,11 @@ on:
 jobs:
 
   lint:
-    - name: Static Analysis
-      uses: MatthewZito/.github/.github/workflows/pnpm_script_run.yml@master
-      with:
-        script_name: lint
+    uses: MatthewZito/.github/.github/workflows/pnpm_script_run.yml@master
+    with:
+      script_name: lint
 
   unit_test:
-    - name: Unit Tests
-      uses: MatthewZito/.github/.github/workflows/pnpm_script_run.yml@master
-      with:
-        script_name: test
+    uses: MatthewZito/.github/.github/workflows/pnpm_script_run.yml@master
+    with:
+      script_name: test

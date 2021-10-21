@@ -8,7 +8,7 @@ on:
       - master
 
 jobs:
-  release:
+  publish:
     name: Publish on NPM
     runs-on: ubuntu-latest
     steps:
