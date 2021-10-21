@@ -2,7 +2,7 @@
 	"extends": "../tsconfig.json",
 	"references": [
 		{
-			"name": "<project>",
+			"name": "heuristics",
 			"path": ".."
 		}
 	],

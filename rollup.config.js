@@ -62,7 +62,7 @@ export default [
 		output: {
 			file: pkg.browser,
 			format: 'umd',
-			name: '<project>',
+			name: 'heuristics',
 			banner
 		},
 		plugins: [...pluginsBase]
@@ -74,7 +74,7 @@ export default [
 		output: {
 			file: pkg.browser.replace(/\.js$/, '.min.js'),
 			format: 'umd',
-			name: '<project>',
+			name: 'heuristics',
 			banner
 		},
 		plugins: [...pluginsBase, terser()]
@@ -97,7 +97,7 @@ export default [
 	{
 		input: './.build/index.d.ts',
 		output: {
-			file: 'dist/<project>.d.ts',
+			file: 'dist/index.d.ts',
 			format: 'es'
 		},
 		plugins: [dts()]
