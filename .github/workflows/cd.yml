@@ -1,0 +1,49 @@
+name: Continuous Deployment
+
+on:
+  # a push always happens when we merge, ergo this is the
+  # equivalent of `on.merge.branches.master`
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    name: Publish on NPM
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: npm ci
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
+
+  upload_coverage:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - workdir: "/"
+            projectName: heuristics
+
+    steps:
+      uses: MatthewZito/.github/.github/workflows/pnpm_script_run.yml@master
+      with:
+        script_name: test
+
+      name: Upload Coverage Report via Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          base-path: /
+          path-to-lcov: ./coverage/lcov.info
