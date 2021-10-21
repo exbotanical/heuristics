@@ -44,7 +44,7 @@ jobs:
 
       - name: Upload Coverage Report via Coveralls
         uses: coverallsapp/github-action@master
-          with:
-            github-token: ${{ secrets.GITHUB_TOKEN }}
-            base-path: /
-            path-to-lcov: ./coverage/lcov.info
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          base-path: /
+          path-to-lcov: ./coverage/lcov.info
