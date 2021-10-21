@@ -34,8 +34,8 @@
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls && pnpm clean",
     "docgen": "api-extractor run --local && api-documenter markdown -i temp -o docs",
     "lint": "eslint --ext .js,.ts,.json --no-fix .",
-    "prerelease": "npm pack && tar -xvzf *.tgz && rimraf package *.tgz",
     "postinstall": "husky install",
+    "prerelease": "npm pack && tar -xvzf *.tgz && rimraf package *.tgz",
     "semantic-release": "semantic-release",
     "test": "jest --bail __tests__",
     "test:watch": "jest --watch"

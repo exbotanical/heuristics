@@ -1,6 +1,7 @@
 # Project-Specific Addenda
 .build
 .rollup.cache
+tsconfig.tsbuildinfo
 
 # Logs
 logs
@@ -49,7 +50,6 @@ jspm_packages/
 web_modules/
 
 # TypeScript cache
-*.tsbuildinfo
 
 # Optional npm cache directory
 .npm
