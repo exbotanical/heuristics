@@ -30,17 +30,24 @@ jobs:
 
   upload_coverage:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        include:
-          - workdir: "/"
-            projectName: heuristics
 
     steps:
-      - name: Test and Generate Coverage Report
-        uses: MatthewZito/.github/.github/workflows/pnpm_script_run.yml@master
+      - name: Git Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@646cdf48217256a3d0b80361c5a50727664284f2
         with:
-          script_name: test
+          version: 6.14.7
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: 'pnpm'
+
+      - run: pnpm install
+      - run: pnpm test
 
       - name: Upload Coverage Report via Coveralls
         uses: coverallsapp/github-action@master
