@@ -53,7 +53,7 @@ jobs:
           node-version: 'lts/*'
           cache: 'pnpm'
 
-      - run: pnpm install
+      - run: pnpm install --no-frozen-lockfile
       - run: pnpm test
 
       - name: Upload Coverage Report via Coveralls
