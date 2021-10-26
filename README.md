@@ -4,6 +4,7 @@
 
 [![Continuous Deployment](https://github.com/MatthewZito/heuristics/actions/workflows/cd.yml/badge.svg)](https://github.com/MatthewZito/heuristics/actions/workflows/cd.yml)
 [![Continuous Integration](https://github.com/MatthewZito/heuristics/actions/workflows/ci.yml/badge.svg)](https://github.com/MatthewZito/heuristics/actions/workflows/ci.yml)
+[![Coverage Status](https://coveralls.io/repos/github/MatthewZito/heuristics/badge.svg?branch=master)](https://coveralls.io/github/MatthewZito/heuristics?branch=master)
 [![npm version](https://badge.fury.io/js/heuristics.svg)](https://badge.fury.io/js/heuristics)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
