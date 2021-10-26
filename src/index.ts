@@ -1,9 +1,9 @@
 export * from './contract';
 
-export * from './not';
-
-export * from './type';
+export * from './guard';
 
 export * from './iterable';
 
-export * from './types';
+export * from './misc';
+
+export * from './type';

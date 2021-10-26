@@ -4,7 +4,7 @@
  *
  * @public
  */
-export const isFunction = (testValue: unknown): testValue is Function => {
+export function isFunction(testValue: unknown): testValue is Function {
 	if (testValue) {
 		const result = {}.toString.call(testValue);
 
@@ -16,7 +16,7 @@ export const isFunction = (testValue: unknown): testValue is Function => {
 	}
 
 	return false;
-};
+}
 
 /**
  * Test whether a given value is a generator function
@@ -24,12 +24,15 @@ export const isFunction = (testValue: unknown): testValue is Function => {
  *
  * @public
  */
-export const isGenerator = (
+export function isGenerator(
 	testValue: unknown
-): testValue is GeneratorFunction =>
-	!!testValue &&
-	isFunction(testValue) &&
-	testValue.constructor.name === 'GeneratorFunction';
+): testValue is GeneratorFunction {
+	return (
+		!!testValue &&
+		isFunction(testValue) &&
+		testValue.constructor.name === 'GeneratorFunction'
+	);
+}
 
 /**
  * Test whether a given value is an async function
@@ -37,13 +40,11 @@ export const isGenerator = (
  *
  * @public
  */
-export const isAsyncFunction = (
-	testValue: unknown
-): testValue is Promise<any> => {
+export function isAsyncFunction(testValue: unknown): testValue is Promise<any> {
 	return (
 		!!testValue && {}.toString.call(testValue) === '[object AsyncFunction]'
 	);
-};
+}
 
 /**
  * Test whether a given value is an anonymous function
@@ -51,35 +52,15 @@ export const isAsyncFunction = (
  *
  * @public
  */
-export const isAnonymousFunction = (
+export function isAnonymousFunction(
 	testValue: unknown
-): testValue is Omit<Function, 'name'> => {
+): testValue is Omit<Function, 'name'> {
 	return (
 		!!testValue &&
 		isFunction(testValue) &&
 		!/(?<=\bfunction\s)(\w+)/.test(testValue.toString())
 	);
-};
-
-/**
- * Test whether a given value is a regular function i.e. not async, generator, or anonymous
- * @param testValue - a value to test
- *
- * @public
- */
-export const isRegularFunction = (
-	testValue: unknown
-): testValue is Function & typeof testValue extends GeneratorFunction
-	? never
-	: typeof testValue & typeof testValue extends Promise<any>
-	? never
-	: typeof testValue => {
-	return (
-		!!testValue &&
-		isFunction(testValue) &&
-		/(?<=\bfunction\s)(\w+)/.test(testValue.toString())
-	);
-};
+}
 
 /**
  * Test whether a given value is a number
@@ -87,9 +68,9 @@ export const isRegularFunction = (
  *
  * @public
  */
-export const isNumber = (testValue: unknown): testValue is number => {
+export function isNumber(testValue: unknown): testValue is number {
 	return typeof testValue == 'number' && !isNaN(testValue);
-};
+}
 
 /**
  * Test whether a given value is a floating point number
@@ -97,13 +78,13 @@ export const isNumber = (testValue: unknown): testValue is number => {
  *
  * @public
  */
-export const isFloat = (testValue: unknown): testValue is number => {
+export function isFloat(testValue: unknown): testValue is number {
 	if (typeof testValue === 'symbol' || (testValue !== 0 && !testValue)) {
 		return false;
 	}
 
 	return Number(testValue) === testValue && testValue % 1 !== 0;
-};
+}
 
 /**
  * Test whether a given value is a string
@@ -111,9 +92,9 @@ export const isFloat = (testValue: unknown): testValue is number => {
  *
  * @public
  */
-export const isString = (testValue: unknown): testValue is string => {
+export function isString(testValue: unknown): testValue is string {
 	return {}.toString.call(testValue) == '[object String]';
-};
+}
 
 /**
  * Test whether a given value is an Error
@@ -121,9 +102,9 @@ export const isString = (testValue: unknown): testValue is string => {
  *
  * @public
  */
-export const isError = (testValue: unknown): testValue is Error => {
+export function isError(testValue: unknown): testValue is Error {
 	return {}.toString.call(testValue) == '[object Error]';
-};
+}
 
 /**
  * Test whether a given value is a plain object
@@ -131,9 +112,9 @@ export const isError = (testValue: unknown): testValue is Error => {
  *
  * @public
  */
-export const isObject = (testValue: unknown): testValue is Object => {
+export function isObject(testValue: unknown): testValue is Object {
 	return {}.toString.call(testValue) == '[object Object]';
-};
+}
 
 /**
  * Test whether a given value is an array
@@ -141,9 +122,9 @@ export const isObject = (testValue: unknown): testValue is Object => {
  *
  * @public
  */
-export const isArray = (testValue: unknown): testValue is any[] => {
+export function isArray(testValue: unknown): testValue is any[] {
 	return Array.isArray(testValue);
-};
+}
 
 /**
  * Test whether a given value is a Boolean
@@ -151,10 +132,10 @@ export const isArray = (testValue: unknown): testValue is any[] => {
  *
  * @public
  */
-export const isBoolean = (testValue: unknown): testValue is boolean => {
+export function isBoolean(testValue: unknown): testValue is boolean {
 	return (
 		testValue === true ||
 		testValue === false ||
 		{}.toString.call(testValue) === '[object Boolean]'
 	);
-};
+}
