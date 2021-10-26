@@ -2,12 +2,28 @@
 
 [Home](./index.md) &gt; [heuristics](./heuristics.md) &gt; [contract](./heuristics.contract.md)
 
-## contract variable
+## contract() function
 
 Generate a contractually-bound predicate
 
 <b>Signature:</b>
 
 ```typescript
-contract: <T>(predicate: IPredicate<T>, message?: string | undefined) => (testValue: T) => ReturnType<typeof requires>
+declare function contract<T>(predicate: IPredicate<T>, message?: string): (testValue: T) => ReturnType<typeof requires>;
 ```
+
+## Parameters
+
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  predicate | IPredicate&lt;T&gt; | a predicate function to which the returned function's argument will be passed |
+|  message | string | custom error message to be used upon contract violations |
+
+<b>Returns:</b>
+
+(testValue: T) =&gt; ReturnType&lt;typeof requires&gt;
+
+## Exceptions
+
+when contract is violated
+

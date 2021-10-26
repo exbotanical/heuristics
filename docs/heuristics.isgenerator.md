@@ -2,12 +2,23 @@
 
 [Home](./index.md) &gt; [heuristics](./heuristics.md) &gt; [isGenerator](./heuristics.isgenerator.md)
 
-## isGenerator variable
+## isGenerator() function
 
 Test whether a given value is a generator function
 
 <b>Signature:</b>
 
 ```typescript
-isGenerator: (testValue: unknown) => testValue is GeneratorFunction
+declare function isGenerator(testValue: unknown): testValue is GeneratorFunction;
 ```
+
+## Parameters
+
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  testValue | unknown | a value to test |
+
+<b>Returns:</b>
+
+testValue is GeneratorFunction
+

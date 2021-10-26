@@ -2,12 +2,23 @@
 
 [Home](./index.md) &gt; [heuristics](./heuristics.md) &gt; [isAnonymousFunction](./heuristics.isanonymousfunction.md)
 
-## isAnonymousFunction variable
+## isAnonymousFunction() function
 
 Test whether a given value is an anonymous function
 
 <b>Signature:</b>
 
 ```typescript
-isAnonymousFunction: (testValue: unknown) => testValue is Omit<Function, "name">
+declare function isAnonymousFunction(testValue: unknown): testValue is Omit<Function, 'name'>;
 ```
+
+## Parameters
+
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  testValue | unknown | a value to test |
+
+<b>Returns:</b>
+
+testValue is Omit&lt;Function, 'name'&gt;
+

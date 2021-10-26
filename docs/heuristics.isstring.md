@@ -2,12 +2,23 @@
 
 [Home](./index.md) &gt; [heuristics](./heuristics.md) &gt; [isString](./heuristics.isstring.md)
 
-## isString variable
+## isString() function
 
 Test whether a given value is a string
 
 <b>Signature:</b>
 
 ```typescript
-isString: (testValue: unknown) => testValue is string
+declare function isString(testValue: unknown): testValue is string;
 ```
+
+## Parameters
+
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  testValue | unknown | a value to test |
+
+<b>Returns:</b>
+
+testValue is string
+

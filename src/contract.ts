@@ -1,4 +1,9 @@
-import type { IPredicate } from './types';
+/**
+ * @public
+ */
+export interface IPredicate<T> {
+	(args: T): boolean;
+}
 
 /**
  * Require a condition, else throw
@@ -8,14 +13,14 @@ import type { IPredicate } from './types';
  *
  * @public
  */
-export const requires = (
+export function requires(
 	condition: boolean,
 	message = 'contract violation'
-): asserts condition => {
+): asserts condition {
 	if (!condition) {
 		throw new Error(message);
 	}
-};
+}
 
 /**
  * Generate a contractually-bound predicate
@@ -25,10 +30,10 @@ export const requires = (
  *
  * @public
  */
-export const contract = <T>(predicate: IPredicate<T>, message?: string) => {
+export function contract<T>(predicate: IPredicate<T>, message?: string) {
 	return (testValue: T): ReturnType<typeof requires> =>
 		requires(predicate(testValue), message);
-};
+}
 
 /**
  * Generate a function that accepts a test value on which n predicates are enforced
@@ -36,8 +41,8 @@ export const contract = <T>(predicate: IPredicate<T>, message?: string) => {
  *
  * @public
  */
-export const testForEach = <T>(...predicates: IPredicate<T>[]) => {
+export function testForEach<T>(...predicates: IPredicate<T>[]) {
 	return function (testValue: T) {
 		return predicates.every((fn) => fn(testValue));
 	};
-};
+}

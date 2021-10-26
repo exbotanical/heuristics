@@ -3,7 +3,6 @@ import {
 	isGenerator,
 	isAsyncFunction,
 	isAnonymousFunction,
-	isRegularFunction,
 	isNumber,
 	isFloat,
 	isString,
@@ -72,7 +71,6 @@ describe('function heuristics', () => {
 	const asyncAnon = async function () {};
 
 	const all = [generator, anon, anon2, regular, asyncf, asyncAnon, anonGen];
-	const irregular = [generator, anon, anon2, asyncf, anonGen, asyncAnon];
 	const nongen = [anon, anon2, regular, asyncf];
 	const sync = [generator, anon, anon2, anonGen, regular];
 
@@ -80,21 +78,16 @@ describe('function heuristics', () => {
 		all.forEach((_) => expect(isFunction(_)).toBe(true));
 	});
 
-	it('returns true for regular functions', () => {
-		expect(isRegularFunction(regular)).toBe(true);
-	});
-
-	it('returns false for non-regular functions', () => {
-		expect(
-			irregular.reduce((acc, _) => (acc = isRegularFunction(_) && true), true)
-		).toBe(false);
-	});
-
 	it('returns true for anonymous functions', () => {
 		expect(isAnonymousFunction(anon)).toBe(true);
 		expect(isAnonymousFunction(anon2)).toBe(true);
 		expect(isAnonymousFunction(anonGen)).toBe(true);
 		expect(isAnonymousFunction(asyncAnon)).toBe(true);
+	});
+
+	it('returns fsalse for non-anonymous functions', () => {
+		expect(isAnonymousFunction(regular)).toBe(false);
+		expect(isAnonymousFunction(asyncf)).toBe(false);
 	});
 
 	it('returns true for generator functions', () => {

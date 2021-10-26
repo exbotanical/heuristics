@@ -8,7 +8,7 @@ import { isNumber, isString } from './type';
  *
  * @public
  */
-export function range(start: unknown, end: unknown) {
+export function range(start: string | number, end: string | number) {
 	if (
 		(!isNumber(start) && !isString(start)) ||
 		(!isNumber(end) && !isString(end))
@@ -20,7 +20,8 @@ export function range(start: unknown, end: unknown) {
 		{ start, end },
 		{
 			has(target, prop) {
-				if (isString(prop) || isNumber(prop)) {
+				// empty array may also evaluate to empty string
+				if ((isString(prop) && prop !== '') || isNumber(prop)) {
 					return prop >= target.start && prop <= target.end;
 				}
 

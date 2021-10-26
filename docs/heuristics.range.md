@@ -9,7 +9,7 @@ Generate an iterable range
 <b>Signature:</b>
 
 ```typescript
-declare function range(start: unknown, end: unknown): never[] | {
+declare function range(start: string | number, end: string | number): never[] | {
     start: string | number;
     end: string | number;
 };
@@ -19,8 +19,8 @@ declare function range(start: unknown, end: unknown): never[] | {
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  start | unknown | lower limit of range |
-|  end | unknown | upper limit of range |
+|  start | string \| number | lower limit of range |
+|  end | string \| number | upper limit of range |
 
 <b>Returns:</b>
 

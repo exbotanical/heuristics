@@ -2,12 +2,23 @@
 
 [Home](./index.md) &gt; [heuristics](./heuristics.md) &gt; [not](./heuristics.not.md)
 
-## not variable
+## not() function
 
 Convert an expression or value to a negated boolean cast of itself
 
 <b>Signature:</b>
 
 ```typescript
-not: (testValue: unknown) => boolean
+declare function not(testValue: unknown): boolean;
 ```
+
+## Parameters
+
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  testValue | unknown | a value to test |
+
+<b>Returns:</b>
+
+boolean
+
