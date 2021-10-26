@@ -36,11 +36,11 @@ describe('iterables', () => {
 	it('returns false when a generated range function is provided non-number or string', () => {
 		const handler = range(0, 1000);
 		// @ts-expect-error
-		expect({} in handler).toStrictEqual(false);
+		expect({} in handler).toBe(false);
 		// @ts-expect-error
-		expect([] in handler).toStrictEqual(false);
+		expect([] in handler).toBe(false);
 		const e = () => {};
 		// @ts-expect-error
-		expect(e in handler).toStrictEqual(false);
+		expect(e in handler).toBe(false);
 	});
 });

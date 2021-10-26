@@ -2,12 +2,23 @@
 
 [Home](./index.md) &gt; [heuristics](./heuristics.md) &gt; [isError](./heuristics.iserror.md)
 
-## isError variable
+## isError() function
 
 Test whether a given value is an Error
 
 <b>Signature:</b>
 
 ```typescript
-isError: (testValue: unknown) => testValue is Error
+declare function isError(testValue: unknown): testValue is Error;
 ```
+
+## Parameters
+
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  testValue | unknown | a value to test |
+
+<b>Returns:</b>
+
+testValue is Error
+

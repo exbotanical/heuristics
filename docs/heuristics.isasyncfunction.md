@@ -2,12 +2,23 @@
 
 [Home](./index.md) &gt; [heuristics](./heuristics.md) &gt; [isAsyncFunction](./heuristics.isasyncfunction.md)
 
-## isAsyncFunction variable
+## isAsyncFunction() function
 
 Test whether a given value is an async function
 
 <b>Signature:</b>
 
 ```typescript
-isAsyncFunction: (testValue: unknown) => testValue is Promise<any>
+declare function isAsyncFunction(testValue: unknown): testValue is Promise<any>;
 ```
+
+## Parameters
+
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  testValue | unknown | a value to test |
+
+<b>Returns:</b>
+
+testValue is Promise&lt;any&gt;
+

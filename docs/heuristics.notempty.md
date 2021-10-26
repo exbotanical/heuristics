@@ -2,12 +2,23 @@
 
 [Home](./index.md) &gt; [heuristics](./heuristics.md) &gt; [notEmpty](./heuristics.notempty.md)
 
-## notEmpty variable
+## notEmpty() function
 
-Evaluate whether the given object, array, or string is \_\_not\_\_ empty
+Determine whether the given object, array, or string is \_\_not\_\_ empty
 
 <b>Signature:</b>
 
 ```typescript
-notEmpty: (testValue: unknown) => testValue is unknown
+declare function notEmpty(testValue: unknown): boolean;
 ```
+
+## Parameters
+
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  testValue | unknown | a value to test |
+
+<b>Returns:</b>
+
+boolean
+

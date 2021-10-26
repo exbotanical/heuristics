@@ -2,12 +2,23 @@
 
 [Home](./index.md) &gt; [heuristics](./heuristics.md) &gt; [isFloat](./heuristics.isfloat.md)
 
-## isFloat variable
+## isFloat() function
 
 Test whether a given value is a floating point number
 
 <b>Signature:</b>
 
 ```typescript
-isFloat: (testValue: unknown) => testValue is number
+declare function isFloat(testValue: unknown): testValue is number;
 ```
+
+## Parameters
+
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  testValue | unknown | a value to test |
+
+<b>Returns:</b>
+
+testValue is number
+

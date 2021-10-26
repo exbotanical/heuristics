@@ -2,12 +2,23 @@
 
 [Home](./index.md) &gt; [heuristics](./heuristics.md) &gt; [testForEach](./heuristics.testforeach.md)
 
-## testForEach variable
+## testForEach() function
 
 Generate a function that accepts a test value on which n predicates are enforced
 
 <b>Signature:</b>
 
 ```typescript
-testForEach: <T>(...predicates: IPredicate<T>[]) => (testValue: T) => boolean
+declare function testForEach<T>(...predicates: IPredicate<T>[]): (testValue: T) => boolean;
 ```
+
+## Parameters
+
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  predicates | IPredicate&lt;T&gt;\[\] | a list of predicate functions to evaluate |
+
+<b>Returns:</b>
+
+(testValue: T) =&gt; boolean
+

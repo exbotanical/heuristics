@@ -2,12 +2,28 @@
 
 [Home](./index.md) &gt; [heuristics](./heuristics.md) &gt; [requires](./heuristics.requires.md)
 
-## requires variable
+## requires() function
 
 Require a condition, else throw
 
 <b>Signature:</b>
 
 ```typescript
-requires: (condition: boolean, message?: string) => asserts condition
+declare function requires(condition: boolean, message?: string): asserts condition;
 ```
+
+## Parameters
+
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  condition | boolean | a condition expression |
+|  message | string | custom error message to be used upon requirement violations |
+
+<b>Returns:</b>
+
+asserts condition
+
+## Exceptions
+
+when requirement is violated
+

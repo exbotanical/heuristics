@@ -71,7 +71,6 @@ describe('function heuristics', () => {
 	const asyncAnon = async function () {};
 
 	const all = [generator, anon, anon2, regular, asyncf, asyncAnon, anonGen];
-	const irregular = [generator, anon, anon2, asyncf, anonGen, asyncAnon];
 	const nongen = [anon, anon2, regular, asyncf];
 	const sync = [generator, anon, anon2, anonGen, regular];
 

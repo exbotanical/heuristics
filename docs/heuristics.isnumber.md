@@ -2,12 +2,23 @@
 
 [Home](./index.md) &gt; [heuristics](./heuristics.md) &gt; [isNumber](./heuristics.isnumber.md)
 
-## isNumber variable
+## isNumber() function
 
 Test whether a given value is a number
 
 <b>Signature:</b>
 
 ```typescript
-isNumber: (testValue: unknown) => testValue is number
+declare function isNumber(testValue: unknown): testValue is number;
 ```
+
+## Parameters
+
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  testValue | unknown | a value to test |
+
+<b>Returns:</b>
+
+testValue is number
+

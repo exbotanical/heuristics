@@ -2,12 +2,23 @@
 
 [Home](./index.md) &gt; [heuristics](./heuristics.md) &gt; [isBoolean](./heuristics.isboolean.md)
 
-## isBoolean variable
+## isBoolean() function
 
 Test whether a given value is a Boolean
 
 <b>Signature:</b>
 
 ```typescript
-isBoolean: (testValue: unknown) => testValue is boolean
+declare function isBoolean(testValue: unknown): testValue is boolean;
 ```
+
+## Parameters
+
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  testValue | unknown | a value to test |
+
+<b>Returns:</b>
+
+testValue is boolean
+

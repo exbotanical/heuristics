@@ -5,19 +5,7 @@
 ```ts
 
 // @public
-export const contract: <T>(predicate: IPredicate<T>, message?: string | undefined) => (testValue: T) => ReturnType<typeof requires>;
-
-// @internal (undocumented)
-export type _INonEmptyArray<T = any> = [T, ...T[]];
-
-// @internal (undocumented)
-export type _INonEmptyObject<T> = T extends {} ? never : T;
-
-// @internal (undocumented)
-export type _INonEmptyString<T> = T extends '' ? never : T;
-
-// @internal (undocumented)
-export type _INotNullOrUndefined<T> = T extends null | undefined ? never : T;
+export function contract<T>(predicate: IPredicate<T>, message?: string): (testValue: T) => ReturnType<typeof requires>;
 
 // @public (undocumented)
 export interface IPredicate<T> {
@@ -26,64 +14,67 @@ export interface IPredicate<T> {
 }
 
 // @public
-export const isAnonymousFunction: (testValue: unknown) => testValue is Omit<Function, "name">;
+export function isAnonymousFunction(testValue: unknown): testValue is Omit<Function, 'name'>;
 
 // @public
-export const isArray: (testValue: unknown) => testValue is any[];
+export function isArray(testValue: unknown): testValue is any[];
 
 // @public
-export const isAsyncFunction: (testValue: unknown) => testValue is Promise<any>;
+export function isAsyncFunction(testValue: unknown): testValue is Promise<any>;
 
 // @public
-export const isBoolean: (testValue: unknown) => testValue is boolean;
+export function isBoolean(testValue: unknown): testValue is boolean;
 
 // @public
-export const isError: (testValue: unknown) => testValue is Error;
+export function isDefined<T>(testValue: T | undefined): boolean;
 
 // @public
-export const isFloat: (testValue: unknown) => testValue is number;
+export function isError(testValue: unknown): testValue is Error;
 
 // @public
-export const isFunction: (testValue: unknown) => testValue is Function;
+export function isExtant<T>(testValue: T | null | undefined): testValue is T;
 
 // @public
-export const isGenerator: (testValue: unknown) => testValue is GeneratorFunction;
+export function isFloat(testValue: unknown): testValue is number;
 
 // @public
-export const isNumber: (testValue: unknown) => testValue is number;
+export function isFunction(testValue: unknown): testValue is Function;
 
 // @public
-export const isObject: (testValue: unknown) => testValue is Object;
+export function isGenerator(testValue: unknown): testValue is GeneratorFunction;
 
 // @public
-export const isRegularFunction: (testValue: unknown) => testValue is unknown;
+export function isNonNull<T>(testValue: T | null): testValue is T;
 
 // @public
-export const isString: (testValue: unknown) => testValue is string;
+export function isNumber(testValue: unknown): testValue is number;
 
 // @public
-export const not: (testValue: unknown) => boolean;
+export function isObject(testValue: unknown): testValue is Object;
 
 // @public
-export const notEmpty: (testValue: unknown) => testValue is unknown;
+export function isString(testValue: unknown): testValue is string;
 
 // @public
-export const notInPrototype: (testObj: object, prop: PropertyKey) => boolean;
+export function not(testValue: unknown): boolean;
 
 // @public
-export const notNullOrUndefined: (testValue: unknown) => testValue is unknown;
+export function notEmpty(testValue: unknown): boolean;
 
 // @public
-export function range(start: unknown, end: unknown): never[] | {
+export function notInPrototype(testObj: object, prop: PropertyKey): boolean;
+
+// @public
+export function range(start: string | number, end: string | number): never[] | {
     start: string | number;
     end: string | number;
 };
 
 // @public
-export const requires: (condition: boolean, message?: string) => asserts condition;
+export function requires(condition: boolean, message?: string): asserts condition;
 
 // @public
-export const testForEach: <T>(...predicates: IPredicate<T>[]) => (testValue: T) => boolean;
+export function testForEach<T>(...predicates: IPredicate<T>[]): (testValue: T) => boolean;
 
 // (No @packageDocumentation comment for this package)
 

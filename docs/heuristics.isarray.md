@@ -2,12 +2,23 @@
 
 [Home](./index.md) &gt; [heuristics](./heuristics.md) &gt; [isArray](./heuristics.isarray.md)
 
-## isArray variable
+## isArray() function
 
 Test whether a given value is an array
 
 <b>Signature:</b>
 
 ```typescript
-isArray: (testValue: unknown) => testValue is any[]
+declare function isArray(testValue: unknown): testValue is any[];
 ```
+
+## Parameters
+
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  testValue | unknown | a value to test |
+
+<b>Returns:</b>
+
+testValue is any\[\]
+

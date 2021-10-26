@@ -2,12 +2,23 @@
 
 [Home](./index.md) &gt; [heuristics](./heuristics.md) &gt; [isFunction](./heuristics.isfunction.md)
 
-## isFunction variable
+## isFunction() function
 
 Test whether a given value is a function, including async and generator functions
 
 <b>Signature:</b>
 
 ```typescript
-isFunction: (testValue: unknown) => testValue is Function
+declare function isFunction(testValue: unknown): testValue is Function;
 ```
+
+## Parameters
+
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  testValue | unknown | a value to test |
+
+<b>Returns:</b>
+
+testValue is Function
+
