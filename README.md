@@ -2,7 +2,8 @@
 
 ## Useful heuristics, type checks, and validation helpers for JavaScript and TypeScript
 
-[![Build Status](https://travis-ci.com/MatthewZito/heuristics.svg?branch=master)](https://travis-ci.com/MatthewZito/heuristics)
+[![Continuous Deployment](https://github.com/MatthewZito/heuristics/actions/workflows/cd.yml/badge.svg)](https://github.com/MatthewZito/heuristics/actions/workflows/cd.yml)
+[![Continuous Integration](https://github.com/MatthewZito/heuristics/actions/workflows/ci.yml/badge.svg)](https://github.com/MatthewZito/heuristics/actions/workflows/ci.yml)
 [![npm version](https://badge.fury.io/js/heuristics.svg)](https://badge.fury.io/js/heuristics)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -10,7 +11,14 @@
 
 ![Exquisite GIF of Hagrid](assets/urawiz.gif "the maintainer does not guarantee this will happen to you")
 
-## Installation
+## Table of Contents
+
+- [Install](#install)
+  - [Supported Environments](#support)
+- [Documentation](#docs)
+
+
+## <a name="install"></a> Installation
 
 ```bash
 npm install heuristics
@@ -22,18 +30,22 @@ OR
 yarn add heuristics
 ```
 
-## Supported Environments
+### <a name="support"></a>  Supported Environments
 
 `heuristics` currently supports UMD, CommonJS (node versions >= 10), and ESM build-targets
 
 Commonjs:
 
 ```js
-const { } = require('heuristics');
+const { isDefined } = require('heuristics');
 ```
 
 ESM:
 
 ```js
-import { } from 'heuristics';
+import { isDefined } from 'heuristics';
 ```
+
+## <a name="docs"></a> Documentation
+
+Full documentation can be found [here](https://matthewzito.github.io/heuristics/heuristics.html)
